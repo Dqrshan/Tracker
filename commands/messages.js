@@ -27,7 +27,7 @@ class Messages extends Command {
     const data = this.client.db.user.get(member.user.id) ?? 0;
     const index =
       (await this.client.db.user.raw.findAll())
-        .sort((b, a) => b.messages - a.messages)
+        .sort((a, b) => b.messages - a.messages)
         .findIndex(m => m.user === member.user.id) + 1;
 
     const embed = new MessageEmbed()
