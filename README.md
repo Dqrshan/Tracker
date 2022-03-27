@@ -6,7 +6,7 @@
 
 An advanced messages tracking system made with [discord.js](https://discord.js.org/) v13 (latest)
 
-- Simple & Light [**Sequelize**](https://sequelize.org) database.
+- Simple & Light [**SQLite**](https://sequelize.org) database.
 - Slash Commands 🎉
 - Highly configurable
 - Auto refresh leaderboard every `x` interval
