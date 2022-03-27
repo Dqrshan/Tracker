@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const { CommandInteraction, Collection, MessageEmbed } = require('discord.js');
+const { CommandInteraction, MessageEmbed } = require('discord.js');
 const Command = require('../structures/command');
 
 class Leaderboard extends Command {
@@ -16,27 +16,15 @@ class Leaderboard extends Command {
    * @param {CommandInteraction} interaction
    */
   async run(interaction) {
-    const fullData = await this.client.db.user.raw.findAll();
-    const collection = new Collection();
-    for (let f of fullData) {
-      collection.set(f.user, {
-        messages: f.messages,
-        user: f.user,
-      });
-    }
+    const fullData = await this.client.db.user.raw.findAll({ order: [['messages', 'DESC']], limit: 10 });
     const data = this.client.db.user.get(interaction.user.id) ?? 0;
-    const index =
-      (await this.client.db.user.raw.findAll())
-        .sort((a, b) => b.messages - a.messages)
-        .findIndex(m => m.user === interaction.user.id) + 1;
-
-    const lb = collection.sort((x, y) => y.messages - x.messages).first(10);
+    const index = fullData.findIndex(u => u.user === interaction.user.id) + 1;
 
     const embed = new MessageEmbed()
       .setThumbnail(interaction.guild?.iconURL({ dynamic: true }))
-      .setTitle(`Leaderboard (${lb.length} entries)`)
+      .setTitle(`Leaderboard (${fullData.length} entries)`)
       .setDescription(
-        `${lb
+        `${fullData
           .map((x, i) => {
             return `\`${top(i + 1)}\`. <@!${x.user}>・**${x.messages}** messages`;
           })
@@ -46,10 +34,6 @@ class Leaderboard extends Command {
       .setFooter({
         text: `🏆 Position・${data === 0 ? `unknown` : index}`,
       });
-    // .setFooter({
-    //   text: `Dev・${(await this.client.users.fetch('838620835282812969')).tag}`,
-    //   iconURL: (await this.client.users.fetch('838620835282812969')).avatarURL(),
-    // })
 
     return interaction
       .reply({

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const { CommandInteraction, MessageEmbed, Collection, MessageButton, MessageActionRow } = require('discord.js');
+const { CommandInteraction, MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const Command = require('../structures/command');
 
 class Config extends Command {
@@ -156,17 +156,7 @@ class Config extends Command {
           });
           return;
         }
-        const data = await this.client.db.user.raw.findAll();
-        const collection = new Collection();
-
-        for (let d of data) {
-          collection.set(d.user, {
-            user: d.user,
-            messages: d.messages,
-          });
-        }
-
-        const lb = collection.sort((x, y) => y.messages - x.messages).first(10);
+        const data = await this.client.db.user.raw.findAll({ order: [['messages', 'DESC']], limit: 10 });
         // check messages button
         const button = new MessageButton().setLabel('Check Messages').setStyle('SECONDARY').setCustomId('_CHECK');
 
@@ -183,7 +173,7 @@ class Config extends Command {
           )
           .setColor(interaction.guild?.me?.displayHexColor)
           .setDescription(
-            `${lb
+            `${data
               .map((x, i) => {
                 return `\`${top(i + 1)}\`. <@!${x.user}>・**${x.messages}** messages`;
               })

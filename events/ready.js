@@ -3,7 +3,7 @@ const chalk = require('chalk');
 const Client = require('../structures/client');
 const { register } = require('../assets/register');
 const { CronJob } = require('cron');
-const { MessageEmbed, Collection, MessageButton, MessageActionRow } = require('discord.js');
+const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 
 /**
  * @param {Client} client
@@ -49,18 +49,7 @@ module.exports = async client => {
             const msg = await channel.messages.fetch(data.msg);
             if (!msg) return;
 
-            const full = await client.db.user.raw.findAll();
-            const collection = new Collection();
-
-            for (let d of full) {
-              collection.set(d.user, {
-                user: d.user,
-                messages: d.messages,
-              });
-            }
-
-            const lb = collection.sort((x, y) => y.messages - x.messages).first(10);
-
+            const data = await client.db.user.raw.findAll({ order: [['messages', 'DESC']], limit: 10 });
             const embed = new MessageEmbed()
               .setFooter({
                 text: `Next refresh`,
@@ -74,7 +63,7 @@ module.exports = async client => {
               )
               .setColor(guild?.me?.displayHexColor)
               .setDescription(
-                `${lb
+                `${data
                   .map((x, i) => {
                     return `\`${top(i + 1)}\`. <@!${x.user}>・**${x.messages}** messages`;
                   })

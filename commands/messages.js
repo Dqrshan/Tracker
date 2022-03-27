@@ -26,9 +26,9 @@ class Messages extends Command {
     const member = interaction.options.getMember('target') || interaction.member;
     const data = this.client.db.user.get(member.user.id) ?? 0;
     const index =
-      (await this.client.db.user.raw.findAll())
-        .sort((a, b) => b.messages - a.messages)
-        .findIndex(m => m.user === member.user.id) + 1;
+      (await this.client.db.user.raw.findAll({ order: [['messages', 'DESC']], limit: 10 })).findIndex(
+        m => m.user === member.user.id,
+      ) + 1;
 
     const embed = new MessageEmbed()
       .setTitle(`${member.id === interaction.member.id ? 'Your' : `${member.user.username}'s`} Messages`)
