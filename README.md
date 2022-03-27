@@ -9,7 +9,8 @@ An advanced messages tracking system made with [discord.js](https://discord.js.o
 - Simple & Light [**Sequelize**](https://sequelize.org) database.
 - Slash Commands 🎉
 - Highly configurable
-  And more...
+
+And more...
 
 ## 📝 Note
 
