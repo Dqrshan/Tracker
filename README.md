@@ -1,6 +1,6 @@
 # Advanced Messages Tracking System | discord.js v13
 
-> Contributions accepted!
+> This repository has a [GNU General Public License Version 3](https://github.com/Dqrshan/Tracker/blob/main/LICENSE) which does not grant you trademark access. You must preserve the owner's credit. Modifications & Improvements are allowed and must be notified to the owner.
 
 ## 🎈 Introduction
 
@@ -9,14 +9,11 @@ An advanced messages tracking system made with [discord.js](https://discord.js.o
 - Simple & Light [**Sequelize**](https://sequelize.org) database.
 - Slash Commands 🎉
 - Highly configurable
+- Auto refresh leaderboard every `x` interval
 
-And more...
+## 💖 Contributions
 
-## 📝 Note
-
-This repository isn't finished yet, but I decided to make it public. Feel free to contribute by creating a [PR](https://github.com/Dqrshan/Tracker/pulls).
-
-- I'm yet to make an **auto refresh leaderboard**
+I may have made some mistakes here and there, but you are free to **fork** this repository, modify/improve and contribute by creating a [pull request](https://github.com/Dqrshan/Tracker/pulls).
 
 ## ☎️ Contact Me
 
