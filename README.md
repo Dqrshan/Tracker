@@ -11,7 +11,7 @@ An advanced messages tracking system made with [discord.js](https://discord.js.o
 - Highly configurable
 - Auto refresh leaderboard every `x` interval
 
-## 💖 Contributions
+## 💖 Contribution
 
 I may have made some mistakes here and there, but you are free to **fork** this repository, modify/improve and contribute by creating a [pull request](https://github.com/Dqrshan/Tracker/pulls).
 
