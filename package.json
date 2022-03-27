@@ -1,0 +1,40 @@
+{
+  "dependencies": {
+    "@discordjs/rest": "^0.3.0",
+    "chalk": "^4.0.1",
+    "discord-api-types": "^0.26.1",
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0",
+    "sequelize": "^6.17.0",
+    "sqlite3": "^4.2.0"
+  },
+  "name": "message-tracker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "lint": "eslint . --ext .js && prettier --check .",
+    "format": "eslint . --fix && prettier --write ."
+  },
+  "author": "Lorenz#1337",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.12.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.1"
+  },
+  "keywords": [
+    "discord.js",
+    "messages",
+    "tracker",
+    "discord",
+    "javascript",
+    "sequelize",
+    "sqlite"
+  ],
+  "description": "Advanced Discord.js v13 Messages Tracking System"
+}
