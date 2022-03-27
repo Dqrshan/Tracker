@@ -5,6 +5,7 @@ const { Sequelize } = require('sequelize');
 const chalk = require('chalk');
 const Command = require('./command');
 const User = require('../models/user.model');
+const Guild = require('../models/guild.model');
 
 class Client extends Discord.Client {
   constructor() {
@@ -21,6 +22,7 @@ class Client extends Discord.Client {
     });
     this.db = {
       user: new User(this),
+      guild: new Guild(this),
     };
   }
 
