@@ -1,6 +1,6 @@
 const chalk = require('chalk');
 // eslint-disable-next-line no-unused-vars
-const { CommandInteraction } = require('discord.js');
+const { CommandInteraction, MessageEmbed } = require('discord.js');
 // eslint-disable-next-line no-unused-vars
 const Client = require('../structures/client');
 
@@ -28,8 +28,8 @@ module.exports = async (client, interaction) => {
         }
         if (
           // eslint-disable-next-line max-len
-          !interaction.member.permissions.has(command.permissions)
-          && !interaction.guild?.me?.permissions.has(command.permissions)
+          !interaction.member.permissions.has(command.permissions) &&
+          !interaction.guild?.me?.permissions.has(command.permissions)
         ) {
           interaction.reply({
             content: `Missing \`${command.permissions.join('`, `')}\` Permissions`,
@@ -40,6 +40,30 @@ module.exports = async (client, interaction) => {
       await command.run(interaction);
     } catch (error) {
       console.log(chalk.redBright(error));
+    }
+  }
+
+  if (interaction.isButton()) {
+    if (interaction.customId === '_CHECK') {
+      const data = client.db.user.get(interaction.user.id) ?? 0;
+      const index =
+        (await client.db.user.raw.findAll())
+          .sort((a, b) => b.messages - a.messages)
+          .findIndex(m => m.user === interaction.user.id) + 1;
+
+      const embed = new MessageEmbed()
+        .setTitle(`Your Messages`)
+        .setThumbnail(interaction.member.displayAvatarURL({ dynamic: true }))
+        .setDescription(`You have sent **${data}** messages`)
+        .setColor(interaction.member.displayHexColor)
+        .setFooter({
+          text: `🏆 Position・${data === 0 ? 'unknown' : index}`,
+        });
+
+      return interaction.reply({
+        embeds: [embed],
+        ephemeral: true,
+      });
     }
   }
 };
