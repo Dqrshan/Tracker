@@ -8,6 +8,7 @@ An advanced messages tracking system made with [discord.js](https://discord.js.o
 
 - Simple & Light [**SQLite**](https://sequelize.org) database.
 - Slash Commands 🎉
+- Multi Guild support
 - Highly configurable
 - Auto refresh leaderboard every `x` interval
 
