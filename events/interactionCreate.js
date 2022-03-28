@@ -45,9 +45,21 @@ module.exports = async (client, interaction) => {
 
   if (interaction.isButton()) {
     if (interaction.customId === '_CHECK') {
-      const data = client.db.user.get(interaction.user.id) ?? 0;
+      const main = await client.db.user.raw.findOne({
+        where: {
+          guild: interaction.guildId,
+          user: interaction.user.id,
+        },
+      });
+      const data = main === null ? 0 : parseInt(main.messages);
       const index =
-        (await client.db.user.raw.findAll())
+        (
+          await client.db.user.raw.findAll({
+            where: {
+              guild: interaction.guildId,
+            },
+          })
+        )
           .sort((a, b) => b.messages - a.messages)
           .findIndex(m => m.user === interaction.user.id) + 1;
 

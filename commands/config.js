@@ -111,38 +111,82 @@ class Config extends Command {
 
     if (group === 'messages') {
       if (sub === 'add') {
-        const data = this.client.db.user.get(target.user.id) ?? 0;
-        await this.client.db.user.set(target.user.id, data + amount);
+        const data = await this.client.db.user.raw.findOne({
+          where: {
+            guild: interaction.guildId,
+            user: target.user.id,
+          },
+        });
+        const msgs = data === null ? 0 : parseInt(data.messages);
+        await this.client.db.user.raw.upsert({
+          guild: interaction.guildId,
+          user: target.user.id,
+          messages: msgs + amount,
+        });
         return interaction.reply({
           content:
             `Added \`${amount}\` messages to **${target.user.tag}**.\n` +
-            `> Total Messages: \`${this.client.db.user.get(target.user.id)}\``,
+            `> Total Messages: \`${
+              (
+                await this.client.db.user.raw.findOne({
+                  where: {
+                    guild: interaction.guildId,
+                    user: target.user.id,
+                  },
+                })
+              ).messages
+            }\``,
         });
       } else if (sub === 'remove') {
-        const data = this.client.db.user.get(target.user.id) ?? 0;
-        if (data < amount) {
+        const data = await this.client.db.user.raw.findOne({
+          where: {
+            guild: interaction.guildId,
+            user: target.user.id,
+          },
+        });
+        const msgs = data === null ? 0 : parseInt(data.messages);
+        if (msgs < amount) {
           interaction.reply({
             content: `Please specify a valid amount`,
           });
           return;
         }
-        await this.client.db.user.set(target.user.id, data - amount);
+        await this.client.db.user.raw.upsert({
+          guild: interaction.guildId,
+          user: target.user.id,
+          messages: msgs - amount,
+        });
         return interaction.reply({
           content:
             `Removed \`${amount}\` messages from **${target.user.tag}**.\n` +
-            `> Total Messages: \`${this.client.db.user.get(target.user.id)}\``,
+            `> Total Messages: \`${
+              (
+                await this.client.db.user.raw.findOne({
+                  where: {
+                    guild: interaction.guildId,
+                    user: target.user.id,
+                  },
+                })
+              ).messages
+            }\``,
         });
       } else if (sub === 'reset') {
         if (!toReset) {
-          const full = await this.client.db.user.raw.findAll();
-          for (let f of full) {
-            await this.client.db.user.del(f.user);
-          }
+          await this.client.db.user.raw.destroy({
+            where: {
+              guild: interaction.guildId,
+            },
+          });
           return interaction.reply({
             content: `Successfully reset all messages`,
           });
         } else {
-          await this.client.db.user.del(toReset.user.id);
+          await this.client.db.user.raw.destroy({
+            where: {
+              guild: interaction.guildId,
+              user: toReset.user.id,
+            },
+          });
           return interaction.reply({
             content: `Successfully reset messages of **${toReset.user.tag}**`,
           });
