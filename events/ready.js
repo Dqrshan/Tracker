@@ -19,10 +19,12 @@ module.exports = async client => {
     ],
   });
   console.log(chalk.greenBright(`[@] ${client.user.tag}`));
-  // await client.application?.commands?.set([]); // clear slash commands
-  // await client.db.user.raw.drop();
+
+  // load database(s)
   await client.db.user.init();
   await client.db.guild.init();
+
+  // register application commands
   const guild = client.guilds.cache.get('865126895690842112');
   await register(client, guild);
 

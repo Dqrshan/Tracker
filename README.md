@@ -12,6 +12,18 @@ An advanced messages tracking system made with [discord.js](https://discord.js.o
 - Highly configurable
 - Auto refresh leaderboard every `x` interval
 
+## ⚒️ Installation
+
+There's not much installation, but as mentioned before its highly configurable!
+
+- Replace [this line](https://github.com/Dqrshan/Tracker/blob/main/events/ready.js#L28) with your **Server**'s **ID**:
+
+```js
+const guild = client.guilds.cache.get('865126895690842112');
+```
+
+And that's it! You are good to go!
+
 ## 💖 Contribution
 
 I may have made some mistakes here and there, but you are free to **fork** this repository, modify/improve and contribute by creating a [pull request](https://github.com/Dqrshan/Tracker/pulls).
