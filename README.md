@@ -20,10 +20,13 @@ An advanced messages tracking system made with [discord.js](https://discord.js.o
 
 There's not much installation, but as mentioned before its highly configurable!
 
-- Replace [this line](https://github.com/Dqrshan/Tracker/blob/main/events/ready.js#L28) with your **Server**'s **ID**:
+- Fill in [.env](https://github.com/Dqrshan/Tracker/blob/main/.env.example) file with your credentials:
+  - `token=` your bot's token, you can find it [here](https://discord.dev/).
+  - `guild=` your server's ID where slash commands will be registered. You must enable **Developer Mode** for copying IDs (`Settings ➔ Advanced ➔ Developer Mode`).
 
-```js
-const guild = client.guilds.cache.get('865126895690842112');
+```env
+token=
+guild=
 ```
 
 And that's it! You are good to go!
