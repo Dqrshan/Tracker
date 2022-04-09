@@ -25,7 +25,8 @@ module.exports = async client => {
   await client.db.guild.init();
 
   // register application commands
-  const guild = client.guilds.cache.get('865126895690842112');
+  // eslint-disable-next-line no-undef
+  const guild = client.guilds.cache.get(process.env.guild);
   await register(client, guild);
 
   /** Auto - Refresh - Leaderboard */
