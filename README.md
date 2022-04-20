@@ -14,7 +14,7 @@ WELL, no need of all that when you got [**Electra**](https://discord.com/invite/
 
 [Invite](https://discord.com/api/oauth2/authorize?client_id=923925375657082931&scope=bot+applications.commands&permissions=8)・[Support](https://discord.com/invite/V5Vd2bsJZs)・[Vote](https://top.gg/bot/923925375657082931/vote)
 
-[![https://discordapp.com/api/guilds/870927306384887818/widget.png?style=banner2]](https://discord.com/invite/V5Vd2bsJZs)
+<img src="https://discordapp.com/api/guilds/870927306384887818/widget.png?style=banner2">
 
 ## 🎈 Introduction
 
