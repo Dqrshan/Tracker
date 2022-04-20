@@ -6,6 +6,8 @@
 
 ## 🤖 Electra
 
+![Electra](https://discordapp.com/api/guilds/870927306384887818/widget.png?style=banner3)
+
 Too lazy to download the repo, open in IDE, edit the code, host it, and then use it?
 WELL, no need of all that when you got [**Electra**](https://discord.com/invite/V5Vd2bsJZs)!
 
@@ -13,8 +15,6 @@ WELL, no need of all that when you got [**Electra**](https://discord.com/invite/
 - Coded in [`typescript`](), using [`@sapphire/framework`](), and with a powerful [`MySQL`](https://mysql.com) database, this bot is super ready for your server!
 
 [Invite](https://discord.com/api/oauth2/authorize?client_id=923925375657082931&scope=bot+applications.commands&permissions=8)・[Support](https://discord.com/invite/V5Vd2bsJZs)・[Vote](https://top.gg/bot/923925375657082931/vote)
-
-[![Electra Server](https://discordapp.com/api/guilds/870927306384887818/widget.png?style=banner3)](https://discord.com/invite/V5Vd2bsJZs)
 
 ---
 
