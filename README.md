@@ -12,7 +12,7 @@ Too lazy to download the repo, open in IDE, edit the code, host it, and then use
 WELL, no need of all that when you got [**Electra**](https://discord.com/invite/V5Vd2bsJZs)!
 
 - Electra is a public bot that offers **Message Tracking** along with **General Utilities**.
-- Coded in [`typescript`](), using [`@sapphire/framework`](), and with a powerful [`MySQL`](https://mysql.com) database, this bot is super ready for your server!
+- Coded in [`typescript`](https://typescriptlang.org), using [`@sapphire/framework`](https://github.com/sapphiredev/framework), and with a powerful [`MySQL`](https://mysql.com) database, this bot is super ready for your server!
 
 [Invite](https://discord.com/api/oauth2/authorize?client_id=923925375657082931&scope=bot+applications.commands&permissions=8)・[Support](https://discord.com/invite/V5Vd2bsJZs)・[Vote](https://top.gg/bot/923925375657082931/vote)
 
