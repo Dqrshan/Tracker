@@ -4,6 +4,18 @@
 
 ---
 
+## 🤖 Electra
+
+Too lazy to download the repo, open in IDE, edit the code, host it, and then use it?
+WELL, no need of all that when you got [**Electra**](https://discord.com/invite/V5Vd2bsJZs)!
+
+- Electra is a public bot that offers **Message Tracking** along with **General Utilities**.
+- Coded in [`typescript`](), using [`@sapphire/framework`](), and with a powerful [`MySQL`](https://mysql.com) database, this bot is super ready for your server!
+
+[Invite](https://discord.com/api/oauth2/authorize?client_id=923925375657082931&scope=bot+applications.commands&permissions=8)・[Support](https://discord.com/invite/V5Vd2bsJZs)・[Vote](https://top.gg/bot/923925375657082931/vote)
+
+<img src="https://discordapp.com/api/guilds/870927306384887818/widget.png?style=banner2" alt="Electra"/>
+
 ## 🎈 Introduction
 
 An advanced messages tracking system made with [discord.js](https://discord.js.org/) v13 (latest)
@@ -32,6 +44,13 @@ guild=1234567890
 And that's it! You are good to go!
 
 ---
+
+## ⚙️ Hosting
+
+I do not encourage hosting this repository on websites such as [`repl.it`](https://repl.it) and [`glitch`](https://glitch.com). Unless you have hacker plan, your data is exposed to everyone, since the database is locally stored via sqlite. Glitch often messes up the local storage system, causing your database to corrupt.
+
+- I would suggest using **pterodactyl nodes** or a **VPS** (Virtual Private Server).
+- You could, mess around with the code, and change the database dialects and host on your preferred choice!
 
 ## 💖 Contribution
 
