@@ -52,7 +52,7 @@ module.exports = async client => {
             const msg = await channel.messages.fetch(data.msg);
             if (!msg) return;
 
-            const data = await client.db.user.raw.findAll({ order: [['messages', 'DESC']], limit: 10 });
+            const _data = await client.db.user.raw.findAll({ order: [['messages', 'DESC']], limit: 10 });
             const embed = new MessageEmbed()
               .setFooter({
                 text: `Next refresh`,
@@ -66,7 +66,7 @@ module.exports = async client => {
               )
               .setColor(guild?.me?.displayHexColor)
               .setDescription(
-                `${data
+                `${_data
                   .map((x, i) => {
                     return `\`${top(i + 1)}\`. <@!${x.user}>・**${x.messages}** messages`;
                   })
