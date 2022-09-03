@@ -70,8 +70,6 @@ I may have made some mistakes here and there, but you are free to **fork** this 
         <b>@bruh.darshan</b>
       </sub>
     </a>
-  </tr>
-  <tr>
     <td align="center"><a href="https://discord.com/users/838620835282812969"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="Lorenz#1337" width="100px">
     <br />
       <sub>
