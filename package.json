@@ -37,5 +37,9 @@
     "sequelize",
     "sqlite"
   ],
-  "description": "Advanced Discord.js v13 Messages Tracking System"
+  "description": "Advanced Discord.js v13 Messages Tracking System",
+  "repository": {
+    "url": "https://github.com/Dqrshan/Tracker.git",
+    "type": "git"
+  }
 }
