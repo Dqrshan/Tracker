@@ -64,7 +64,15 @@ I may have made some mistakes here and there, but you are free to **fork** this 
 
 <table>
   <tr>
-    <td align="center"><a href="https://discord.com/users/838620835282812969"><img src="https://media.discordapp.net/attachments/926313179326332940/952484622745354240/245200298_4491192070947485_329361950020987053_n.jpg?width=530&height=663" width="100px">
+    <td align="center"><a href="https://instagram.com/bruh.darshan"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="bruh.darshan" width="100px">
+    <br />
+      <sub>
+        <b>@bruh.darshan</b>
+      </sub>
+    </a>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://discord.com/users/838620835282812969"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="Lorenz#1337" width="100px">
     <br />
       <sub>
         <b>Lorenz#1337</b>
